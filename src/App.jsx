@@ -1,12 +1,14 @@
-import { User, Home, Briefcase } from "lucide-react";
+import Navbar from "./Navbar/Navbar";
+import Main from "./Main/Main";
+import Footer from "./Footer/Footer";
 
 function App() {
   return (
-    <div>
-      <Home size={24} />
-      <User size={24} />
-      <Briefcase size={24} />
-    </div>
+    <>
+      <Navbar />
+      <Main />
+      <Footer />
+    </>
   );
 }
 
