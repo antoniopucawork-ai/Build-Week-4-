@@ -1,0 +1,74 @@
+.main-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.search-container {
+  position: relative;
+  width: 250px;
+}
+
+.search-input {
+  border-radius: 100px;
+  padding-left: 40px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 18px;
+  color: #7a7a7a;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-item-custom {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  padding: 8px 5px !important;
+  color: #7a7a7a;
+}
+
+.nav-item-custom span {
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 45px;
+  background-color: #ddd;
+  margin: 0 5px;
+}
+
+.company-dropdown-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.company-dropdown-title span {
+  font-size: 12px;
+  margin-top: 3px;
+  padding-right: 8px;
+}
+
+#company-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
