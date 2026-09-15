@@ -1,0 +1,34 @@
+:root { /* Isipirato da Apple Transition condiviso su ogni pagina */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-sheet: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-fast: 150ms;
+  --dur-base: 280ms;
+  --dur-slow: 450ms;
+}
+
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, Cantarell, Helvetica, Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.9);
+  background-color: #f4f2ee;
+}
+
+.page-enter {
+  animation: page-enter var(--dur-slow) var(--ease-out) backwards;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+
+/* Every transition uses the tokens above, so zeroing them turns motion off */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0.01ms;
+    --dur-base: 0.01ms;
+    --dur-slow: 0.01ms;
+  }
+}
