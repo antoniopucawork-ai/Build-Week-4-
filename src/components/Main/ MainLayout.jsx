@@ -1,11 +1,9 @@
-import MainSection from "./MainSection/MainSection";
-import Aside from "./Aside/Aside";
+import MainSection from "./mainsection/MainSection";
 
 const Main = () => {
   return (
     <main>
       <MainSection />
-      <Aside />
     </main>
   );
 };
