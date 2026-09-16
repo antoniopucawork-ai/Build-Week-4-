@@ -5,7 +5,7 @@ const HeroCard = () => {
   useEffect(() => {
     fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
       headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
       },
     })
       .then((response) => response.json())
