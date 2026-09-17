@@ -1,0 +1,12 @@
+.showAllBtn {
+      width: 100%;
+  border: 0;
+  border-radius: 0;
+  padding: 10px 0;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.showAllBtn:hover {
+  background-color: #f3f3f3;
+}

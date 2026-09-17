@@ -1,0 +1,52 @@
+const SideProfileCard = ({ profile, isLast, buttonLabel, pageInfo }) => {
+  return (
+    <div className={`p-3 ${isLast ? "" : "border-bottom mx-3 px-0"}`}>
+      {pageInfo && (
+        <div className="d-flex gap-2 mb-2">
+          <img
+            src={pageInfo.logo}
+            alt={pageInfo.name}
+            width={48}
+            height={48}
+            className="rounded"
+          />
+          <div>
+            <strong>{pageInfo.name}</strong>
+            <p className="mb-0 text-muted small">{pageInfo.category}</p>
+            <p className="mb-0 text-muted small">
+              {pageInfo.followers} follower
+            </p>
+          </div>
+        </div>
+      )}
+
+      <div className="d-flex gap-2">
+        <img
+          src={profile.image}
+          alt={`${profile.name} ${profile.surname}`}
+          width={pageInfo ? 20 : 50}
+          height={pageInfo ? 20 : 50}
+          className="rounded-circle"
+        />
+
+        {pageInfo ? (
+          <p className="mb-0 text-muted small">
+            {profile.name} e altri 21 collegamenti seguono questa pagina
+          </p>
+        ) : (
+          <div>
+            <strong>
+              {profile.name} {profile.surname}
+            </strong>
+            <p className="mb-0 text-muted">{profile.title}</p>
+            <button className="btn btn-outline-dark rounded-pill mt-2 pt-1 pb-1">
+              {buttonLabel}
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default SideProfileCard;

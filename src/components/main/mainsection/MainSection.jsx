@@ -3,14 +3,15 @@ import Aside from "../Aside/Aside";
 import { Row, Col, Container } from "react-bootstrap";
 
 const MainSection = () => {
+  
   return (
-    <Container>
+    <Container className="py-2">
       <Row>
-        <Col md={8} className="mt-4">
+        <Col md={8} className="mt-2 ColMain">
           <HeroCard />
         </Col>
 
-        <Col md={4} className="mt-4">
+        <Col md={4} className="mt-2 ColAside">
           <Aside />
         </Col>
       </Row>
