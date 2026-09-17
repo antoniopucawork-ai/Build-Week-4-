@@ -3,7 +3,7 @@ import Layout from "./components/layout/Layout";
 
 import Profile from "./pages/profile/Profile";
 import NotFound from "./pages/notfound/NotFound";
-import HeroCard from "./components/main/mainsection/HeroCard/HeroCard";
+import HeroCard from "./components/main/mainsection/herocard/HeroCard";
 const App = () => {
   return (
     <BrowserRouter>

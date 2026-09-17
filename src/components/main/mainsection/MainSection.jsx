@@ -1,4 +1,4 @@
-import HeroCard from "./HeroCard/HeroCard";
+import HeroCard from "./herocard/HeroCard";
 
 const MainSection = () => {
   return (
