@@ -1,3 +1,10 @@
+.hero-card {
+  background-color: white;
+  border: 1px solid #dfdeda;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 .hero-cover {
   height: 200px;
   background-color: #a0b4b7;
@@ -17,4 +24,59 @@
 
 .hero-content {
   padding: 95px 24px 24px;
+  position: relative;
+}
+.hero-name {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.hero-title {
+  font-size: 16px;
+  margin: 4px 0 0;
+}
+
+.hero-area {
+  font-size: 14px;
+  color: #666666;
+  margin: 8px 0 0;
+}
+.hero-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.hero-cover-edit {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.hero-profile-edit {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.hero-contact {
+  color: #0a66c2;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hero-connections {
+  color: #0a66c2;
+  font-weight: 600;
+}
+.hero-details {
+  display: flex;
+  align-items: flex-start;
+}
+
+.hero-info {
+  width: 60%;
+}
+
+.hero-school {
+  width: 40%;
+  padding-top: 8px;
 }
