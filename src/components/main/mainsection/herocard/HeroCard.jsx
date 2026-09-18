@@ -1,11 +1,15 @@
 import { useProfile } from "../../../../api/useProfile";
 import "./HeroCard.css";
+import { useState } from "react";
 import LinkedinButton, {
   BUTTON_VARIANT,
 } from "../../../reusable/buttons/LinkedinButton";
 import epicode from "../../../../assets/logo/epicode-icon.png";
+import UploadImageModal from "../uploadCoverModal/UploadImageModal.jsx";
+
 const HeroCard = () => {
-   const { profile, loading, error } = useProfile();
+  const { profile, loading, error, fetchProfile } = useProfile();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   if (loading) {
     return <p>Caricamento profilo...</p>;
@@ -21,10 +25,14 @@ const HeroCard = () => {
 
   return (
     <div className="hero-card">
-      <div className="hero-cover">
+      <div
+        className="hero-cover"
+        style={{ backgroundImage: `url(${profile.image})` }}
+      >
         <LinkedinButton
           customVariant={BUTTON_VARIANT.ICON_ONLY.EDIT}
           className="hero-cover-edit"
+          onClick={() => setIsModalOpen(true)}
         />
         <img
           className="hero-profile-img"
@@ -37,6 +45,7 @@ const HeroCard = () => {
         <LinkedinButton
           customVariant={BUTTON_VARIANT.ICON_ONLY.EDIT}
           className="hero-profile-edit"
+          onClick={() => setIsModalOpen(true)}
         />
         <div className="hero-details">
           <div className="hero-info">
@@ -66,6 +75,16 @@ const HeroCard = () => {
           <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.RESOURCE} />
         </div>
       </div>
+      {isModalOpen && (
+        <UploadImageModal
+          currentImage={profile.image}
+          onClose={() => setIsModalOpen(false)}
+          onUploadSuccess={() => {
+            setIsModalOpen(false);
+            fetchProfile();
+          }}
+        />
+      )}
     </div>
   );
 };
