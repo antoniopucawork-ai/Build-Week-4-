@@ -1,8 +1,8 @@
-import ChangePageSettings from "../changePageSettings/ChangePageSettings";
+import ChangePageSettings from "../../../main/aside/changePageSettings/ChangePageSettings";
 
 const ChangePageSettingsContainer = ({ settings }) => {
   return (
-    <div className="settings-container bg-white rounded-3 border pt-2 pe-1 ps-1">
+    <div className=" bg-white rounded-3 border pt-2 pe-1 ps-1">
       {settings.map((s, index) => (
         <ChangePageSettings
           key={s.id}

@@ -17,6 +17,31 @@ body {
   animation: page-enter var(--dur-slow) var(--ease-out) backwards;
 }
 
+/* Bottone personalizzato all'hover riutilizzabile in tutti quelli uguali esteticamente il primo è il bottone con i bordi neri e fatto a pillola, il secondo css è per i mostra tutti */
+
+.linkedinOutlineBtn {
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.linkedinOutlineBtn:hover {
+  background-color: #f3f3f3;
+  color: #212529;
+  box-shadow: 0 0 0 1px #070707;
+}
+
+.showAllBtn {
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  padding: 10px 0;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.showAllBtn:hover {
+  background-color: #f3f3f3;
+}
+
 @keyframes page-enter {
   from {
     opacity: 0;

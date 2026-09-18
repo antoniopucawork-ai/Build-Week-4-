@@ -1,6 +1,6 @@
 import { Pencil } from "lucide-react";
 
-const ChangePageSettings = ({ label, value, onEdit, isLast }) => {
+const ChangePageSettings = ({ label, value, onEdit, isLast, }) => {
   return (
     <div className={`p-3 ${isLast ? "" : "border-bottom mx-3 px-0"}`}>
       <div className="d-flex justify-content-between align-items-start">

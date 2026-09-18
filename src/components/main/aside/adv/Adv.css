@@ -1,0 +1,8 @@
+.advPremium {
+  margin: 0 6px;
+}
+
+.advSticky {
+  position: sticky;
+  top: 80px;
+}
