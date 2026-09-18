@@ -1,6 +1,5 @@
 import { useProfile } from "../../../../api/useProfile";
 import "./HeroCard.css";
-import { useEffect, useState } from "react";
 import LinkedinButton, {
   BUTTON_VARIANT,
 } from "../../../reusable/buttons/LinkedinButton";
