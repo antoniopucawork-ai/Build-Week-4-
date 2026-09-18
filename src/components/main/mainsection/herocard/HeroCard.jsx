@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import LinkedinButton, {
   BUTTON_VARIANT,
 } from "../../../reusable/buttons/LinkedinButton";
+import epicode from "../../../../assets/logo/epicode-icon.png";
 const HeroCard = () => {
   const [profile, setProfile] = useState(null);
   useEffect(() => {
@@ -59,6 +60,7 @@ const HeroCard = () => {
           </div>
 
           <div className="hero-school">
+            <img src={epicode} alt="EPICODE" className="hero-school-logo" />{" "}
             <p>EPICODE Institute of Technology</p>
           </div>
         </div>

@@ -1,82 +1,168 @@
 .hero-card {
-  background-color: white;
+  background-color: #ffffff;
   border: 1px solid #dfdeda;
   border-radius: 8px;
   overflow: hidden;
 }
 
+/* COVER */
 .hero-cover {
   height: 200px;
   background-color: #a0b4b7;
   position: relative;
 }
 
+/* FOTO PROFILO */
 .hero-profile-img {
-  width: 150px;
-  height: 150px;
+  width: 152px;
+  height: 152px;
   border-radius: 50%;
-  border: 4px solid white;
+  border: 4px solid #ffffff;
+  object-fit: cover;
 
   position: absolute;
   left: 24px;
-  bottom: -75px;
+  bottom: -76px;
 }
 
+/* CONTENUTO */
 .hero-content {
-  padding: 95px 24px 24px;
+  padding: 92px 24px 24px;
   position: relative;
 }
+
+/* BLOCCO INFORMAZIONI + SCUOLA */
+.hero-details {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.hero-info {
+  flex: 1;
+  min-width: 0;
+}
+
 .hero-name {
   font-size: 24px;
+  line-height: 1.25;
   font-weight: 600;
   margin: 0;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .hero-title {
   font-size: 16px;
-  margin: 4px 0 0;
+  line-height: 1.5;
+  margin: 2px 0 0;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .hero-area {
   font-size: 14px;
-  color: #666666;
-  margin: 8px 0 0;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 4px 0 0;
 }
-.hero-actions {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
-.hero-cover-edit {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-}
-.hero-profile-edit {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-}
+
 .hero-contact {
   color: #0a66c2;
   font-weight: 600;
   cursor: pointer;
 }
+
+.hero-contact:hover {
+  text-decoration: underline;
+}
+
 .hero-connections {
   color: #0a66c2;
+  font-size: 14px;
   font-weight: 600;
-}
-.hero-details {
-  display: flex;
-  align-items: flex-start;
+  margin: 4px 0 0;
 }
 
-.hero-info {
-  width: 60%;
-}
-
+/* SCUOLA */
 .hero-school {
-  width: 40%;
-  padding-top: 8px;
+  width: 280px;
+  padding-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.hero-school-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.hero-school p {
+  margin: 0;
+}
+
+/* PULSANTI */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* MATITE */
+.hero-cover-edit {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.hero-profile-edit {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 767px) {
+  .hero-cover {
+    height: 135px;
+  }
+
+  .hero-profile-img {
+    width: 120px;
+    height: 120px;
+    left: 16px;
+    bottom: -60px;
+  }
+
+  .hero-content {
+    padding: 76px 16px 16px;
+  }
+
+  .hero-details {
+    display: block;
+  }
+
+  .hero-info {
+    width: 100%;
+  }
+
+  .hero-school {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .hero-name {
+    font-size: 20px;
+  }
+
+  .hero-actions {
+    margin-top: 14px;
+  }
 }
