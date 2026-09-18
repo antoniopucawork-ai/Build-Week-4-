@@ -12,14 +12,19 @@ export const StickyProfileBar = () => {
       setIsVisible(window.scrollY > 250);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (!isVisible || loading || !profile) return null;
+  if (loading || !profile) return null;
+
 
   return (
-    <div className="stickyProfileBar position-fixed top-1 start-0 w-100 d-none d-md-flex align-items-center gap-2">
+    <div
+      className={`stickyProfileBar position-fixed start-0 w-100 d-none d-md-flex align-items-center gap-2${isVisible ? " is-visible" : ""}`}
+      aria-hidden={!isVisible}
+    >
       <div className="stickyProfileBarContainer">
         <img
           src={profile.image}

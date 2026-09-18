@@ -1,9 +1,8 @@
 import { useProfile } from "../../../../api/useProfile";
 import "./HeroCard.css";
 import { useState } from "react";
-import LinkedinButton, {
-  BUTTON_VARIANT,
-} from "../../../reusable/buttons/LinkedinButton";
+import LinkedinButton from "../../../reusable/buttons/LinkedinButton"
+import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants"
 import epicode from "../../../../assets/logo/epicode-icon.png";
 import UploadImageModal from "../uploadCoverModal/UploadImageModal.jsx";
 

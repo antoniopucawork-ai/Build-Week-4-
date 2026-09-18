@@ -1,5 +1,5 @@
 import MainLayout from "../../components/main/MainLayout"
-import Aside from "../../components/Main/Aside/Aside";
+import Aside from "../../components/main/aside/Aside"
 import { StickyProfileBar } from "../../components/main/mainsection/stickyProfileBar/StickyProfileBar";
 import { Row, Col, Container } from "react-bootstrap";
 

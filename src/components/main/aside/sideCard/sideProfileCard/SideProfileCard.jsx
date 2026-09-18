@@ -45,8 +45,14 @@ const SideProfileCard = ({ profile, isLast, buttonLabel, pageInfo }) => {
           </div>
         )}
       </div>
-    </div>
-  );
-};
 
-export default SideProfileCard;
+      {pageInfo && (
+        <button className="btn btn-outline-dark rounded-pill mt-2 pt-1 pb-1 linkedinOutlineBtn">
+          {buttonLabel}
+        </button>
+      )}
+    </div>
+  )
+}
+
+export default SideProfileCard
