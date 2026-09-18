@@ -1,16 +1,16 @@
-import HeroCard from "./herocard/HeroCard";
-import Aside from "../Aside/Aside";
+import Aside from "../../Main/Aside/Aside";
 import { Row, Col, Container } from "react-bootstrap";
-
+import MainLayout from "../MainLayout"
 const MainSection = () => {
+  
   return (
-    <Container>
+    <Container className="py-2">
       <Row>
-        <Col md={8} className="mt-4">
-          <HeroCard />
+        <Col md={8} className="mt-2">
+          <MainLayout />
         </Col>
 
-        <Col md={4} className="mt-4">
+        <Col md={4} className="mt-2">
           <Aside />
         </Col>
       </Row>

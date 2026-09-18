@@ -15,3 +15,17 @@ export const getMyProfile = async () => {
     throw new Error(`Profile request failed: ${res.status}`)
   return res.json()
 }
+
+export const getProfiles = async () => {
+  if (!API_KEY)
+    throw new Error("VITE_API_KEY is missing");
+
+  const res = await fetch(`${ENDPOINT}/profile/`, {
+    headers: authHeaders,
+  });
+
+  if (!res.ok)
+    throw new Error(`Profiles request failed: ${res.status}`);
+
+  return res.json();
+};
