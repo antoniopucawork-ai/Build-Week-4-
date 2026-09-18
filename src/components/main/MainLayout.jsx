@@ -1,4 +1,4 @@
-import HeroCard from "./mainsection/herocard/HeroCard";
+import HeroCard from "../Main/MainSection/herocard/HeroCard";
 import RecommendedForYou from "./mainsection/recommendedForYou/RecommendedForYou";
 import Analysis from "./mainsection/analysis/Analysis";
 
