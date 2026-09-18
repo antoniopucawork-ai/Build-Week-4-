@@ -1,0 +1,214 @@
+.li-footer {
+  --footer-text: rgba(0, 0, 0, 0.6);
+  --footer-text-active: rgba(0, 0, 0, 0.9);
+  --footer-control: rgba(0, 0, 0, 0.75);
+  --li-blue: #0a66c2;
+
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--footer-text);
+}
+
+.li-footer__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 25px 16px 27px;
+}
+
+.li-footer :where(ul, p) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Colonne di link */
+.li-footer__links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 443px;
+  line-height: 1.6;
+}
+
+.li-footer__column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.li-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  font: inherit;
+  color: var(--footer-text);
+  text-align: left;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  transition: color var(--dur-fast) ease;
+}
+
+.li-footer__link:hover,
+.li-footer__link[aria-expanded="true"] {
+  color: var(--li-blue);
+  text-decoration: underline;
+}
+
+.li-footer__link.dropdown-toggle {
+  margin-left: -1px;
+}
+
+.li-footer__link.dropdown-toggle::after {
+  display: none;
+}
+
+.li-footer__caret {
+  flex-shrink: 0;
+  translate: 0 1px;
+  rotate: 0deg;
+  transition: rotate var(--dur-base) var(--ease-out);
+}
+
+.li-footer__link[aria-expanded="true"] .li-footer__caret {
+  rotate: 180deg;
+}
+
+/* Menu Privacy & Terms */
+.li-footer__menu {
+  --bs-dropdown-link-active-color: var(--footer-text-active);
+  --bs-dropdown-link-active-bg: rgba(0, 0, 0, 0.06);
+
+  padding: 8px 0;
+  font-size: 14px;
+  line-height: 1.33;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.li-footer__menu.show {
+  animation: li-footer-menu-in var(--dur-base) var(--ease-out);
+}
+
+@keyframes li-footer-menu-in {
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+}
+
+.li-footer__menu .dropdown-item {
+  color: var(--footer-text);
+  transition: color var(--dur-fast) ease;
+}
+
+.li-footer__menu .dropdown-item:hover {
+  color: var(--li-blue);
+  text-decoration: underline;
+  background: none;
+}
+
+.li-footer__copyright {
+  margin-top: 24px;
+  line-height: 1.6;
+  color: var(--footer-text-active);
+}
+
+/* Aiuto e lingua */
+.li-footer__bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 285px) 282px;
+  margin-top: 46px;
+}
+
+.li-footer__help {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 5px 0 0 6px;
+}
+
+.li-footer__help-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9.5px;
+}
+
+.li-footer__help-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--footer-text);
+}
+
+.li-footer__help-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  color: var(--footer-text);
+  text-decoration: none;
+  transition: color var(--dur-fast) ease;
+}
+
+.li-footer__help-title:hover {
+  color: var(--li-blue);
+  text-decoration: underline;
+}
+
+.li-footer__help-text {
+  color: var(--footer-text-active);
+}
+
+.li-footer__language-label {
+  display: block;
+  margin-bottom: 1px;
+}
+
+.li-footer__select-wrap {
+  position: relative;
+}
+
+.li-footer__select {
+  width: 100%;
+  height: 32px;
+  padding: 0 32px 0 8px;
+  font-size: 14px;
+  color: var(--footer-text-active);
+  background: transparent;
+  border: 1px solid var(--footer-control);
+  border-radius: 4px;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  transition:
+    border-color var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease;
+}
+
+.li-footer__select:hover,
+.li-footer__select:focus {
+  border-color: var(--footer-text-active);
+  box-shadow: 0 0 0 1px var(--footer-text-active);
+}
+
+.li-footer__select-icon {
+  position: absolute;
+  top: 13px;
+  right: 9px;
+  color: var(--footer-control);
+  pointer-events: none;
+}
+
+/* Media Query */
+@media (max-width: 575.98px) {
+  .li-footer__links {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+
+  .li-footer__bottom {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+}
