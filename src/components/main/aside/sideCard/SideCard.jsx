@@ -8,7 +8,7 @@ const SideCard = () => {
     <div>
       <div className=" bg-white rounded-3 border pt-2 pe-1 ps-1">
         <div className="p-4 ps-3 pb-0">
-        <label className="mb-0 fw-semibold">Altri profili consultati</label>
+        <h6 className="mb-0 fw-semibold">Altri profili consultati</h6>
         <p className="text-muted lh-1 small">Visibile solo a te</p>
         </div>
         {profiles.slice(0, 4).map((profile, index) => (

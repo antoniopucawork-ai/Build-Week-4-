@@ -29,7 +29,7 @@ const PagesForYou = () => {
       <div className="bg-white rounded-3 border pt-2">
         <div className="pe-1 ps-1">
           <div className="p-4 ps-3 pb-0">
-            <label className="mb-0 fw-semibold">Potrebbero interessarti</label>
+            <h6 className="mb-0 fw-semibold">Potrebbero interessarti</h6>
             <p className="text-muted lh-1 small">Pagine per te</p>
           </div>
           {visibleProfiles.map((profile, index) => (

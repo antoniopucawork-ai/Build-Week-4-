@@ -39,7 +39,7 @@ const SideProfileCard = ({ profile, isLast, buttonLabel, pageInfo }) => {
               {profile.name} {profile.surname}
             </strong>
             <p className="mb-0 text-muted">{profile.title}</p>
-            <button className="btn btn-outline-dark rounded-pill mt-2 pt-1 pb-1">
+            <button className="btn btn-outline-dark rounded-pill mt-2 pt-1 pb-1 linkedinOutlineBtn">
               {buttonLabel}
             </button>
           </div>

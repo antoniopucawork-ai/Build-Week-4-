@@ -18,8 +18,15 @@ const Aside = () => {
   const { profile } = useProfile();
   return (
     <aside className="d-flex flex-column gap-2">
-      <ChangePageSettingsContainer settings={settingsData} />
-      {profile && <Adv user={profile} />}
+      <div className="d-none d-md-block">
+        <ChangePageSettingsContainer settings={settingsData} />
+      </div>
+
+      {profile && (
+        <div className="d-none d-md-block">
+          <Adv user={profile} />
+        </div>
+      )}
 
       <SideCard />
 
@@ -27,7 +34,11 @@ const Aside = () => {
 
       <PagesForYou />
 
-      {profile && <Adv user={profile} sticky/>}
+      {profile && (
+        <div className="d-none d-md-block">
+          <Adv user={profile} sticky />
+        </div>
+      )}
     </aside>
   );
 };
