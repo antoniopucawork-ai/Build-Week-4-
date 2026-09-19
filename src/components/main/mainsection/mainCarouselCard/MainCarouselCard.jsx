@@ -1,18 +1,18 @@
 import "./MainCarouselCard.css";
 import { Plus, Pencil } from "lucide-react";
 
-const MainCarouselCard = () => {
+const MainCarouselCard = ({ isOwnProfile }) => {
   return (
     <section className="main-carousel-card">
       <div className="main-carousel-header">
         <h2>In primo piano</h2>
-
-        <div className="main-carousel-actions">
-          <Plus size={24} />
-          <Pencil size={20} />
-        </div>
+        {isOwnProfile && (
+          <div className="main-carousel-actions">
+            <Plus size={24} />
+            <Pencil size={20} />
+          </div>
+        )}
       </div>
-
       <div className="main-carousel-content">
         <article className="main-carousel-item">
           <p className="main-carousel-type">Link</p>

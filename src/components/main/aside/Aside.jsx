@@ -6,7 +6,9 @@ import PeopleYouMayKnow from "../../main/aside/sideCard/peopleYouMayKnow/PeopleY
 import PagesForYou from "../../main/aside/sideCard/pagesForYou/PagesForYou";
 
 const settingsData = [
-  { id: 1, label: "Lingua del profilo", value: "Italiano" },
+  { id: 1, label: "Lingua del profilo",
+     value: "Italiano" 
+    },
   {
     id: 2,
     label: "Profilo pubblico e URL",

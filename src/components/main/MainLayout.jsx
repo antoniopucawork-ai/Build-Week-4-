@@ -5,20 +5,35 @@ import Information from "./mainsection/information/Information";
 import MainCarouselCard from "./mainsection/mainCarouselCard/MainCarouselCard";
 import Activity from "./mainsection/activity/activity";
 
-const Main = () => {
+{
+  /* Ricevo dal componente Profile i dati del profilo,
+    l'informazione che indica se è il profilo dell'utente autenticato
+    e la funzione per aggiornare i dati del profilo. */
+}
+const Main = ({ profile, isOwnProfile, fetchProfile }) => {
   return (
     <section className="d-flex flex-column gap-2">
-      <HeroCard />
+      {/* Queste sezioni sono visibili anche sugli altri profili,
+          ma ricevono isOwnProfile per gestire le azioni riservate al proprietario. */}
+      <HeroCard
+        profile={profile}
+        isOwnProfile={isOwnProfile}
+        fetchProfile={fetchProfile}
+      />
 
-      <RecommendedForYou />
+      {/* Queste sezioni sono visibili solo nel proprio profilo. */}
+      {isOwnProfile && <RecommendedForYou />}
 
-      <Analysis />
+      {isOwnProfile && <Analysis />}
 
-      <Information />
+      {/* Queste sezioni sono visibili anche sugli altri profili,
+          ma ricevono isOwnProfile per gestire le azioni riservate al proprietario. */}
+      <Information isOwnProfile={isOwnProfile} />
 
-      <MainCarouselCard />
+      <MainCarouselCard isOwnProfile={isOwnProfile} />
 
       <Activity />
+      
     </section>
   );
 };

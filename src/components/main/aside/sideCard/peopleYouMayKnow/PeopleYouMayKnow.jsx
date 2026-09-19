@@ -1,11 +1,15 @@
 import { useProfiles } from "../../../../../api/useProfiles";
 import SideProfileCard from "../sideProfileCard/SideProfileCard";
+import { useNavigate } from "react-router-dom";
 import LinkedinButton from "../../../../reusable/buttons/LinkedinButton";
 import { BUTTON_VARIANT } from "../../../../reusable/buttons/buttonVariants";
 import { ArrowRight } from "lucide-react";
 
 const PeopleYouMayKnow = () => {
   const { profiles } = useProfiles();
+
+  {/* Utilizzo navigate per poter navigare al profilo dell'utente selezionato. */}
+  const navigate = useNavigate();
 
   const visibleProfiles = profiles.slice(0, 5);
 
@@ -22,7 +26,12 @@ const PeopleYouMayKnow = () => {
             profile={profile}
             isLast={index === visibleProfiles.length - 1}
           >
-            <LinkedinButton customVariant={BUTTON_VARIANT.ASIDE.CONNECT} />
+            {/* Al click sul pulsante navigo al profilo dell'utente selezionato,
+    passando il suo ID nell'URL. */}
+            <LinkedinButton
+              customVariant={BUTTON_VARIANT.ASIDE.CONNECT}
+              onClick={() => navigate(`/profile/${profile._id}`)}
+            />
           </SideProfileCard>
         ))}
       </div>
