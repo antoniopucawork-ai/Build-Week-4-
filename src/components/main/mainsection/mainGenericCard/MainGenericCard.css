@@ -1,0 +1,11 @@
+.genericCard {
+  background-color: white;
+  border: 1px solid #dfdeda;
+  border-radius: 8px;
+  padding: 24px;
+}
+.genericCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
