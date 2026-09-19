@@ -1,4 +1,4 @@
-const SideProfileCard = ({ profile, isLast, buttonLabel, pageInfo }) => {
+const SideProfileCard = ({ profile, isLast, children, pageInfo }) => {
   return (
     <div className={`p-3 ${isLast ? "" : "border-bottom mx-3 px-0"}`}>
       {pageInfo && (
@@ -39,18 +39,12 @@ const SideProfileCard = ({ profile, isLast, buttonLabel, pageInfo }) => {
               {profile.name} {profile.surname}
             </strong>
             <p className="mb-0 text-muted">{profile.title}</p>
-            <button className="btn btn-outline-dark rounded-pill mt-2 pt-1 pb-1 linkedinOutlineBtn">
-              {buttonLabel}
-            </button>
+            {children}
           </div>
         )}
       </div>
 
-      {pageInfo && (
-        <button className="btn btn-outline-dark rounded-pill mt-2 pt-1 pb-1 linkedinOutlineBtn">
-          {buttonLabel}
-        </button>
-      )}
+      {pageInfo && children}
     </div>
   )
 }

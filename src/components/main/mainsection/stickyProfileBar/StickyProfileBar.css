@@ -49,18 +49,6 @@
   transition-delay: calc(var(--dur-fast) / 2);
 }
 
-.linkedinInfoBtn {
-  transition:
-    background-color var(--dur-fast) ease,
-    box-shadow var(--dur-fast) ease;
-}
-
-.linkedinInfoBtn:hover {
-  background-color: #ebf3fc;
-  color: #004182;
-  box-shadow: 0 0 0 1px #070707;
-}
-
 .stickyAvatar {
   width: 30px;
   height: 30px;
@@ -76,22 +64,4 @@
   line-height: 1.2;
 }
 
-.stickyBtn {
-  font-size: 14px;
-  padding: 4px 10px;
-  font-weight: 600;
-  scale: 1;
-  -webkit-tap-highlight-color: transparent;
-  transition:
-    color var(--dur-fast) ease,
-    background-color var(--dur-fast) ease,
-    border-color var(--dur-fast) ease,
-    box-shadow var(--dur-fast) ease,
-    scale var(--dur-base) var(--ease-spring);
-}
 
-.stickyBtn:active {
-  scale: 0.97;
-  transition-duration: var(--dur-fast);
-  transition-timing-function: var(--ease-out);
-}

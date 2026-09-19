@@ -1,6 +1,8 @@
 import { useProfiles } from "../../../../../api/useProfiles";
 import SideProfileCard from "../sideProfileCard/SideProfileCard";
-import { Plus, ArrowRight } from "lucide-react";
+import LinkedinButton from "../../../../reusable/buttons/LinkedinButton";
+import { BUTTON_VARIANT } from "../../../../reusable/buttons/buttonVariants";
+import {  ArrowRight } from "lucide-react";
 
 const pagesInfo = [
   {
@@ -38,13 +40,9 @@ const PagesForYou = () => {
               profile={profile}
               pageInfo={pagesInfo[index]}
               isLast={index === visibleProfiles.length - 1}
-              buttonLabel={
-                <>
-                  <Plus size={16} className="me-1" />
-                  Segui
-                </>
-              }
-            />
+            >
+              <LinkedinButton customVariant={BUTTON_VARIANT.ASIDE.FOLLOW} />
+            </SideProfileCard>
           ))}
         </div>
         <div className="border-top">
