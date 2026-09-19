@@ -80,6 +80,7 @@
   background-color: transparent;
   color: rgba(0, 0, 0, 0.6);
   border-color: rgba(0, 0, 0, 0.6);
+  gap: 5px; /* aggiunto il gap per spaziatura tra icona e testo */
 }
 .btn-outline-grey:hover {
   background-color: rgba(0, 0, 0, 0.08);

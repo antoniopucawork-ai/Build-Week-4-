@@ -1,4 +1,5 @@
-import { Pencil } from "lucide-react";
+import LinkedinButton from "../../../reusable/buttons/LinkedinButton"
+import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants"
 
 const ChangePageSettings = ({ label, value, onEdit, isLast, }) => {
   return (
@@ -8,12 +9,11 @@ const ChangePageSettings = ({ label, value, onEdit, isLast, }) => {
           <strong className="fs-5">{label}</strong>
           <p>{value}</p>
         </div>
-        <button onClick={onEdit} className="btn align-self-start py-0">
-          <Pencil size={20} />
-        </button>
+       <LinkedinButton onClick={onEdit} customVariant={BUTTON_VARIANT.ICON_ONLY.EDIT} />
       </div>
     </div>
   );
 };
+
 
 export default ChangePageSettings;

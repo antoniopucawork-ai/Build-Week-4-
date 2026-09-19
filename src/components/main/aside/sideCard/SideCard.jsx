@@ -1,5 +1,7 @@
 import { useProfiles } from "../../../../api/useProfiles";
 import SideProfileCard from "./sideProfileCard/SideProfileCard";
+import LinkedinButton from "../../../reusable/buttons/LinkedinButton";
+import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants";
 
 const SideCard = () => {
   const { profiles } = useProfiles()
@@ -18,8 +20,9 @@ const SideCard = () => {
             key={profile._id}
             profile={profile}
             isLast={index === visibleProfiles.length - 1}
-            buttonLabel="Visualizza"
-          />
+           >
+            <LinkedinButton customVariant={BUTTON_VARIANT.ASIDE.VIEW} />
+            </SideProfileCard>
         ))}
       </div>
     </div>
