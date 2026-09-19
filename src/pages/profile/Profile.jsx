@@ -23,7 +23,7 @@ const Profile = () => {
   }
   return (
     <>
-      <StickyProfileBar />
+      <StickyProfileBar profile={profile} isOwnProfile={!id} />
       <Container className="py-2">
         <Row>
           <Col md={8} className="mt-2">

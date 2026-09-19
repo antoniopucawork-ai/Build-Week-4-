@@ -32,7 +32,7 @@ const Main = ({ profile, isOwnProfile, fetchProfile }) => {
 
       <MainCarouselCard isOwnProfile={isOwnProfile} />
 
-      <Activity />
+      <Activity profile={profile} />
       
     </section>
   );

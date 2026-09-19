@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getProfiles } from "./strive";
 
 export const useProfiles = () => {
@@ -6,26 +6,37 @@ export const useProfiles = () => {
   const [profiles, setProfiles] = useState([]);
   const [error, setError] = useState("");
 
-  const fetchProfiles = async () => {
+  // Come in useProfile: solo la risposta più recente aggiorna lo stato.
+  const requestId = useRef(0);
+
+  const fetchProfiles = useCallback(async () => {
+    const currentRequest = ++requestId.current;
     setLoading(true);
+    setError("");
 
     try {
       const data = await getProfiles();
 
-      console.log("PROFILI API:", data);
-
-      setProfiles(data);
+      if (currentRequest === requestId.current) {
+        // L'API deve restituire un array: se così non fosse evito
+        // che un .slice() su un valore non valido rompa la pagina.
+        setProfiles(Array.isArray(data) ? data : []);
+      }
     } catch (e) {
-      setError(e.message);
+      if (currentRequest === requestId.current) {
+        setError(e.message);
+      }
     } finally {
-      setLoading(false);
+      if (currentRequest === requestId.current) {
+        setLoading(false);
+      }
     }
-  };
+  }, []);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchProfiles();
-  }, []);
+  }, [fetchProfiles]);
 
   return {
     loading,
