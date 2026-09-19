@@ -1,0 +1,90 @@
+.activity {
+  background-color: #ffffff;
+  border: 1px solid #dfdeda;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.activity-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.activity-followers {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: #0a66c2;
+  font-weight: 600;
+}
+
+.activity-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.activity-posts {
+  display: flex;
+  gap: 12px;
+  padding: 0 24px 24px;
+  overflow-x: auto;
+}
+
+.activity-post {
+  flex: 0 0 280px;
+  min-height: 180px;
+  padding: 16px;
+  border: 1px solid #dfdeda;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.activity-post-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.activity-post-author img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.activity-post-name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.activity-post-author span {
+  font-size: 12px;
+  color: #666666;
+}
+
+.activity-post-text {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.activity-show-all {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-top: 1px solid #dfdeda;
+  background-color: transparent;
+  font-weight: 600;
+  color: #404040;
+  text-align: center;
+}
+
+.activity-show-all:hover {
+  background-color: #f3f2ef;
+}

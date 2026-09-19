@@ -11,7 +11,8 @@ const App = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<MainSection />} />
 
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:id?" element={<Profile />} />
+
 
           <Route path="*" element={<NotFound />} />
         </Route>
