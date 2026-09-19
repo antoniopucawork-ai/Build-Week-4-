@@ -1,0 +1,81 @@
+.main-carousel-card {
+  background-color: white;
+  border: 1px solid #dfdeda;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.main-carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px 12px;
+}
+
+.main-carousel-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.main-carousel-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.main-carousel-actions svg {
+  cursor: pointer;
+}
+
+.main-carousel-content {
+  display: flex;
+  gap: 12px;
+  padding: 8px 24px 24px;
+  overflow-x: auto;
+}
+
+.main-carousel-item {
+  flex: 0 0 300px;
+  border: 1px solid #dfdeda;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.main-carousel-type {
+  margin: 0;
+  padding: 12px 16px 8px;
+  font-size: 14px;
+  color: #666666;
+}
+
+.main-carousel-image {
+  width: 100%;
+  height: 150px;
+  background-color: #f3f2ef;
+}
+
+.main-carousel-info {
+  padding: 12px 16px 16px;
+}
+
+.main-carousel-info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.main-carousel-info span {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  color: #666666;
+}
+
+.main-carousel-info p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #404040;
+}

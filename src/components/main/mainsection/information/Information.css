@@ -1,0 +1,47 @@
+.information {
+  background-color: white;
+  border: 1px solid #dfdeda;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.information-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.information-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+.information-description {
+  margin: 8px 0 16px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.information-skills {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #dfdeda;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.information-skills-content {
+  flex: 1;
+}
+
+.information-skills-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.information-skills-content p {
+  font-size: 14px;
+  margin: 2px 0 0;
+}

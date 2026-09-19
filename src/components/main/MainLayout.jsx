@@ -1,6 +1,8 @@
-import HeroCard from "./mainsection/herocard/HeroCard"
+import HeroCard from "./mainsection/herocard/HeroCard";
 import RecommendedForYou from "./mainsection/recommendedForYou/RecommendedForYou";
 import Analysis from "./mainsection/analysis/Analysis";
+import Information from "./mainsection/information/Information";
+import MainCarouselCard from "./mainsection/mainCarouselCard/MainCarouselCard";
 
 const Main = () => {
   return (
@@ -10,6 +12,10 @@ const Main = () => {
       <RecommendedForYou />
 
       <Analysis />
+
+      <Information />
+
+      <MainCarouselCard />
     </section>
   );
 };
