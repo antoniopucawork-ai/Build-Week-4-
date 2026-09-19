@@ -3,6 +3,7 @@ import RecommendedForYou from "./mainsection/recommendedForYou/RecommendedForYou
 import Analysis from "./mainsection/analysis/Analysis";
 import Information from "./mainsection/information/Information";
 import MainCarouselCard from "./mainsection/mainCarouselCard/MainCarouselCard";
+import Activity from "./mainsection/activity/activity";
 
 const Main = () => {
   return (
@@ -16,6 +17,8 @@ const Main = () => {
       <Information />
 
       <MainCarouselCard />
+
+      <Activity />
     </section>
   );
 };
