@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useProfile } from "../../../../api/useProfile";
+import LinkedinButton from "../../../reusable/buttons/LinkedinButton"
+import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants"
 import "./StickyProfileBar.css";
 
 export const StickyProfileBar = () => {
@@ -41,21 +43,13 @@ export const StickyProfileBar = () => {
         </div>
 
         <div className="stickyActions d-flex align-items-center gap-2 ms-auto">
-          <button className="btn btn-outline-dark rounded-pill linkedinOutlineBtn stickyBtn">
-            Risorse
-          </button>
+          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.RESOURCE} />
 
-          <button className="btn btn-outline-primary rounded-pill linkedinInfoBtn stickyBtn">
-            Migliora profilo
-          </button>
+          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.EHNANCE} />
 
-          <button className="btn btn-outline-primary rounded-pill linkedinInfoBtn stickyBtn">
-            Aggiungi sezione
-          </button>
+          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.ADD_SECTION} />
 
-          <button className="btn btn-primary rounded-pill stickyBtn">
-            Disponibile per
-          </button>
+          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.AVAILABLE} /> 
         </div>
       </div>
     </div>

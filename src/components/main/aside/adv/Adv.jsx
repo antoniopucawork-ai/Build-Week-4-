@@ -1,4 +1,7 @@
+import LinkedinButton from "../../../reusable/buttons/LinkedinButton"
+import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants"
 import "./Adv.css"
+
 
 const Adv = ({ user, sticky }) => {
   return (
@@ -29,9 +32,7 @@ const Adv = ({ user, sticky }) => {
 
       <p className="mb-2 mt-2 p-3">See who's viewed your profile in the last 365 days</p>
 
-      <button className="btn btn-outline-primary rounded-pill pe-3 ps-3">
-        Try for free
-      </button>
+      <LinkedinButton customVariant={BUTTON_VARIANT.ASIDE.TRY} />
     </div>
   );
 };
