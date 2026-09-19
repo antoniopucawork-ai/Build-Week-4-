@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getMyProfile } from "./strive";
+import { getMyProfile, getProfileById } from "./strive";
 
-export const useProfile = () => {
+export const useProfile = (id) => {
   const [loading, setLoading] = useState(false);
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState("");
@@ -9,8 +9,12 @@ export const useProfile = () => {
   const fetchProfile = async () => {
     setLoading(true);
 
+    {/* Se è presente un ID recupero il profilo dell'utente visitato,
+    altrimenti recupero il profilo dell'utente autenticato. */}
     try {
-      const data = await getMyProfile();
+       const data = id
+        ? await getProfileById(id)
+        : await getMyProfile();
 
 console.log("PROFILO API:", data);
 
@@ -25,7 +29,7 @@ console.log("PROFILO API:", data);
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchProfile();
-  }, []);
+  }, [id]);
 
   return {
     loading,

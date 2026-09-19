@@ -1,12 +1,13 @@
 import "./Information.css";
 import { Pencil, Gem, ArrowRight } from "lucide-react";
 
-const Information = () => {
+const Information = ({ isOwnProfile }) => {
   return (
     <section className="information">
       <div className="information-header">
         <h2>Informazioni</h2>
-        <Pencil size={20} />
+        {/* isOwnProfileindica quale tipo di pagina profilo stai visualizzando e mostra l'icona solo se l'utente è autenticato (quindi la pagina profilo ), altrimenti la nasconde se l'utente ha solo l'id */}
+        {isOwnProfile && <Pencil size={20} />}
       </div>
 
       <p className="information-description">

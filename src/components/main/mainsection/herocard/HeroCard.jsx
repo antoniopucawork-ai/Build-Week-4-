@@ -1,22 +1,14 @@
-import { useProfile } from "../../../../api/useProfile";
 import "./HeroCard.css";
 import { useState } from "react";
-import LinkedinButton from "../../../reusable/buttons/LinkedinButton"
-import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants"
+import LinkedinButton from "../../../reusable/buttons/LinkedinButton";
+import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants";
 import epicode from "../../../../assets/logo/epicode-icon.png";
 import UploadImageModal from "../uploadCoverModal/UploadImageModal.jsx";
 
-const HeroCard = () => {
-  const { profile, loading, error, fetchProfile } = useProfile();
+{/* isOwnProfile indica se sto visualizzando il mio profilo o quello di un altro utente.
+    fetchProfile permette di aggiornare i dati del profilo dopo una modifica. */}
+const HeroCard = ({ profile, isOwnProfile, fetchProfile }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  if (loading) {
-    return <p>Caricamento profilo...</p>;
-  }
-
-  if (error) {
-    return <p>Errore nel caricamento del profilo</p>;
-  }
 
   if (!profile) {
     return null;
@@ -28,11 +20,13 @@ const HeroCard = () => {
         className="hero-cover"
         style={{ backgroundImage: `url(${profile.image})` }}
       >
-        <LinkedinButton
-          customVariant={BUTTON_VARIANT.ICON_ONLY.EDIT}
-          className="hero-cover-edit"
-          onClick={() => setIsModalOpen(true)}
-        />
+        {isOwnProfile && (
+          <LinkedinButton
+            customVariant={BUTTON_VARIANT.ICON_ONLY.EDIT}
+            className="hero-cover-edit"
+            onClick={() => setIsModalOpen(true)}
+          />
+        )}
         <img
           className="hero-profile-img"
           src={profile.image}
@@ -41,11 +35,13 @@ const HeroCard = () => {
       </div>
 
       <div className="hero-content">
-        <LinkedinButton
-          customVariant={BUTTON_VARIANT.ICON_ONLY.EDIT}
-          className="hero-profile-edit"
-          onClick={() => setIsModalOpen(true)}
-        />
+        {isOwnProfile && (
+          <LinkedinButton
+            customVariant={BUTTON_VARIANT.ICON_ONLY.EDIT}
+            className="hero-cover-edit"
+            onClick={() => setIsModalOpen(true)}
+          />
+        )}
         <div className="hero-details">
           <div className="hero-info">
             <h2 className="hero-name">
@@ -67,12 +63,14 @@ const HeroCard = () => {
             <p>EPICODE Institute of Technology</p>
           </div>
         </div>
-        <div className="hero-actions">
-          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.AVAILABLE} />
-          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.ADD_SECTION} />
-          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.EHNANCE} />
-          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.RESOURCE} />
-        </div>
+        {isOwnProfile && (
+          <div className="hero-actions">
+            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.AVAILABLE} />
+            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.ADD_SECTION} />
+            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.EHNANCE} />
+            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.RESOURCE} />
+          </div>
+        )}
       </div>
       {isModalOpen && (
         <UploadImageModal
