@@ -1,0 +1,97 @@
+/* Nascosta sotto la navbar (z-index 1030), scende come un foglio quando si scrolla */
+.stickyProfileBar {
+  top: 53px;
+  height: 60px;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  translate: 0 -100%;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    translate var(--dur-slow) var(--ease-sheet),
+    opacity var(--dur-base) var(--ease-out),
+    visibility 0s linear var(--dur-slow);
+}
+
+.stickyProfileBar.is-visible {
+  translate: 0 0;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    translate var(--dur-slow) var(--ease-sheet),
+    opacity var(--dur-base) var(--ease-out),
+    visibility 0s;
+}
+
+.stickyProfileBarContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 16px;
+}
+
+/* Il contenuto arriva con un leggero ritardo rispetto alla barra */
+.stickyProfileBarContainer > * {
+  translate: 0 -6px;
+  opacity: 0;
+  transition:
+    translate var(--dur-slow) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+.stickyProfileBar.is-visible .stickyProfileBarContainer > * {
+  translate: 0 0;
+  opacity: 1;
+  transition-delay: calc(var(--dur-fast) / 2);
+}
+
+.linkedinInfoBtn {
+  transition:
+    background-color var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease;
+}
+
+.linkedinInfoBtn:hover {
+  background-color: #ebf3fc;
+  color: #004182;
+  box-shadow: 0 0 0 1px #070707;
+}
+
+.stickyAvatar {
+  width: 30px;
+  height: 30px;
+}
+
+.stickyName {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.stickyTitle {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.stickyBtn {
+  font-size: 14px;
+  padding: 4px 10px;
+  font-weight: 600;
+  scale: 1;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    color var(--dur-fast) ease,
+    background-color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease,
+    scale var(--dur-base) var(--ease-spring);
+}
+
+.stickyBtn:active {
+  scale: 0.97;
+  transition-duration: var(--dur-fast);
+  transition-timing-function: var(--ease-out);
+}

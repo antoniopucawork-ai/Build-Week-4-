@@ -2,7 +2,9 @@ import { useProfiles } from "../../../../api/useProfiles";
 import SideProfileCard from "./sideProfileCard/SideProfileCard";
 
 const SideCard = () => {
-  const { profiles } = useProfiles();
+  const { profiles } = useProfiles()
+
+  const visibleProfiles = profiles.slice(0, 4)
 
   return (
     <div>
@@ -11,17 +13,17 @@ const SideCard = () => {
         <h6 className="mb-0 fw-semibold">Altri profili consultati</h6>
         <p className="text-muted lh-1 small">Visibile solo a te</p>
         </div>
-        {profiles.slice(0, 4).map((profile, index) => (
+        {visibleProfiles.map((profile, index) => (
           <SideProfileCard
             key={profile._id}
             profile={profile}
-            isLast={index === 3}
+            isLast={index === visibleProfiles.length - 1}
             buttonLabel="Visualizza"
           />
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SideCard;
+export default SideCard

@@ -1,4 +1,4 @@
-import Aside from "../../Main/Aside/Aside";
+import Aside from "../aside/Aside"
 import { Row, Col, Container } from "react-bootstrap";
 import MainLayout from "../MainLayout"
 const MainSection = () => {

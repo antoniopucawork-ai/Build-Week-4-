@@ -1,35 +1,37 @@
+import { useProfile } from "../../../../api/useProfile";
 import "./HeroCard.css";
-import { useEffect, useState } from "react";
-import LinkedinButton, {
-  BUTTON_VARIANT,
-} from "../../../reusable/buttons/LinkedinButton";
+import { useState } from "react";
+import LinkedinButton from "../../../reusable/buttons/LinkedinButton"
+import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants"
 import epicode from "../../../../assets/logo/epicode-icon.png";
+import UploadImageModal from "../uploadCoverModal/UploadImageModal.jsx";
+
 const HeroCard = () => {
-  const [profile, setProfile] = useState(null);
-  useEffect(() => {
-    fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
-      headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setProfile(data);
-      })
-      .catch((error) => {
-        console.log("Errore:", error);
-      });
-  }, []);
-  if (!profile) {
+  const { profile, loading, error, fetchProfile } = useProfile();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  if (loading) {
     return <p>Caricamento profilo...</p>;
   }
+
+  if (error) {
+    return <p>Errore nel caricamento del profilo</p>;
+  }
+
+  if (!profile) {
+    return null;
+  }
+
   return (
     <div className="hero-card">
-      <div className="hero-cover">
+      <div
+        className="hero-cover"
+        style={{ backgroundImage: `url(${profile.image})` }}
+      >
         <LinkedinButton
           customVariant={BUTTON_VARIANT.ICON_ONLY.EDIT}
           className="hero-cover-edit"
+          onClick={() => setIsModalOpen(true)}
         />
         <img
           className="hero-profile-img"
@@ -42,6 +44,7 @@ const HeroCard = () => {
         <LinkedinButton
           customVariant={BUTTON_VARIANT.ICON_ONLY.EDIT}
           className="hero-profile-edit"
+          onClick={() => setIsModalOpen(true)}
         />
         <div className="hero-details">
           <div className="hero-info">
@@ -71,6 +74,16 @@ const HeroCard = () => {
           <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.RESOURCE} />
         </div>
       </div>
+      {isModalOpen && (
+        <UploadImageModal
+          currentImage={profile.image}
+          onClose={() => setIsModalOpen(false)}
+          onUploadSuccess={() => {
+            setIsModalOpen(false);
+            fetchProfile();
+          }}
+        />
+      )}
     </div>
   );
 };

@@ -1,9 +1,8 @@
-/* Specifiche durata delle Transizioni */
-:root {
+/* :root {
   --dur-fast: 0.15s;
   --dur-base: 0.25s;
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+} */
 
 /* Bottone: Font - Bordo - Allineamento - Transizioni */
 .btn-linkedin {
@@ -104,12 +103,12 @@
 }
 
 .btn-icon-only {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.65); /* cambiato la trasparenza in quanto sulla copertina con sfondo nero non si vedeva il pulsante */
   color: rgba(0, 0, 0, 0.6);
   border-color: transparent;
 }
 .btn-icon-only:hover {
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: rgba(255, 255, 255, 0.80); /* cambiato la trasparenza in quanto sulla copertina con sfondo nero non si vedeva il pulsante */
   color: rgba(0, 0, 0, 0.9);
 }
 .btn-icon-only:active {
