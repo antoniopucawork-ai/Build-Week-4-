@@ -12,6 +12,53 @@ const MainCarouselCard = () => {
           <Pencil size={20} />
         </div>
       </div>
+
+      <div className="main-carousel-content">
+        <article className="main-carousel-item">
+          <p className="main-carousel-type">Link</p>
+
+          <div className="main-carousel-image"></div>
+
+          <div className="main-carousel-info">
+            <h3>Portfolio GitHub</h3>
+            <span>GitHub</span>
+
+            <p>
+              In questa sezione puoi trovare i miei progetti e il mio portfolio
+              GitHub.
+            </p>
+          </div>
+        </article>
+
+        <article className="main-carousel-item">
+          <p className="main-carousel-type">Link</p>
+
+          <div className="main-carousel-image"></div>
+
+          <div className="main-carousel-info">
+            <h3>Portfolio personale</h3>
+            <span>Portfolio</span>
+
+            <p>
+              Una raccolta dei progetti realizzati durante il mio percorso come
+              Frontend Developer.
+            </p>
+          </div>
+        </article>
+
+        <article className="main-carousel-item">
+          <p className="main-carousel-type">Link</p>
+
+          <div className="main-carousel-image"></div>
+
+          <div className="main-carousel-info">
+            <h3>LinkedIn Clone</h3>
+            <span>EPICODE</span>
+
+            <p>Progetto React sviluppato in team durante la Build Week.</p>
+          </div>
+        </article>
+      </div>
     </section>
   );
 };
