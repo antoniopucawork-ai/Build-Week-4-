@@ -38,7 +38,7 @@ const Aside = () => {
 
       {profile && (
         <div className="d-none d-md-block">
-          <Adv user={profile} sticky />
+          <Adv user={profile} />
         </div>
       )}
     </aside>

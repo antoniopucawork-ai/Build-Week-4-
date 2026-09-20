@@ -4,6 +4,8 @@ import Analysis from "./mainsection/analysis/Analysis";
 import Information from "./mainsection/information/Information";
 import MainCarouselCard from "./mainsection/mainCarouselCard/MainCarouselCard";
 import Activity from "./mainsection/activity/activity";
+import ExperienceSection from "./mainsection/experiencesSection/ExperiencesSection";
+import FormationSection from "./mainsection/formationSection/FormationSection";
 
 {
   /* Ricevo dal componente Profile i dati del profilo,
@@ -32,8 +34,11 @@ const Main = ({ profile, isOwnProfile, fetchProfile }) => {
 
       <MainCarouselCard isOwnProfile={isOwnProfile} />
 
-      <Activity />
-      
+      <Activity profile={profile} />
+
+      <ExperienceSection userId={profile._id} isOwnProfile={isOwnProfile} />
+
+      <FormationSection isOwnProfile={isOwnProfile} />
     </section>
   );
 };
