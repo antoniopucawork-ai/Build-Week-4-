@@ -1,21 +1,75 @@
+import { useState } from "react";
 import "./css/LinkedinButton.css";
+import { BUTTON_VARIANT } from "./buttonVariants";
+import { useNavigate } from "react-router-dom";
 
-const LinkedinButton = ({ customVariant, variant, iconOnly = false, onClick, disabled = false, size = "md", className = "", ...props }) => {
-  const { icon: Icon, label: labelText, variant: configVariant } = customVariant || {};
+const LinkedinButton = ({
+  customVariant,
+  variant,
+  iconOnly = false,
+  onClick,
+  profileId,
+  disabled = false,
+  size = "md",
+  className = "",
+  ...props
+}) => {
+  const navigate = useNavigate();
+  const [stateButton, setStateButton] = useState("IDLE");
+  const actionType = customVariant?.actionType;
+  let currentConfig = customVariant;
 
-  const activeVariant = variant || configVariant || "primary"
+  if (actionType === "FOLLOW") {
+    currentConfig =
+      stateButton === "FOLLOWED"
+        ? BUTTON_VARIANT.MAIN.FOLLOWED
+        : BUTTON_VARIANT.ASIDE.FOLLOW;
+  } else if (actionType === "CONNECT") {
+    if (stateButton === "PENDING") {
+      currentConfig = BUTTON_VARIANT.MAIN.PENDING_CONNECTION;
+    } else if (stateButton === "CONNECTED") {
+      currentConfig = BUTTON_VARIANT.MAIN.CONNECTED;
+    } else {
+      currentConfig = BUTTON_VARIANT.ASIDE.CONNECT;
+    }
+  }
+
+  const {
+    icon: Icon,
+    label: labelText,
+    variant: configVariant,
+  } = currentConfig || {};
+
+  const activeVariant = variant || configVariant || "primary";
   const isIconOnly = iconOnly || !labelText;
+
+  const handleLabelClick = (e) => {
+    if (actionType === "FOLLOW") {
+      setStateButton((prev) => (prev === "IDLE" ? "FOLLOWED" : "IDLE"));
+    } else if (actionType === "CONNECT") {
+      setStateButton((prev) => {
+        if (prev === "IDLE") return "PENDING";
+        if (prev === "PENDING") return "CONNECTED";
+        return "IDLE";
+      });
+    } else if (onClick) {
+      onClick(e);
+    } else if (profileId) {
+      navigate(`/profile/${profileId}`);
+    }
+  };
 
   return (
     <button
-      type="button"
       className={`btn-linkedin btn-${activeVariant} btn-${size} ${isIconOnly ? "btn-icon-only-base" : ""} ${className}`}
-      onClick={onClick}
+      onClick={handleLabelClick}
       disabled={disabled}
       {...props}
     >
       {Icon && <Icon className="btn-icon" size={18} />}
-      {!isIconOnly && labelText && <span className="btn-label">{labelText}</span>}
+      {!isIconOnly && labelText && (
+        <span className="btn-label">{labelText}</span>
+      )}
     </button>
   );
 };

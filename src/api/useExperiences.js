@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getExperiences } from "./strive";
 
 export const useExperiences = (userId) => {
@@ -6,8 +6,11 @@ export const useExperiences = (userId) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const fetchExperiences = async () => {
-    if (!userId) return;
+  const fetchExperiences = useCallback(async () => {
+    if (!userId) {
+      setExperiences([]);
+      return;
+    }
 
     setLoading(true);
     setError("");
@@ -15,19 +18,18 @@ export const useExperiences = (userId) => {
     try {
       const data = await getExperiences(userId);
 
-      console.log("ESPERIENZE API:", data);
-
-      setExperiences(data);
+      setExperiences(Array.isArray(data) ? data : []);
     } catch (e) {
       setError(e.message);
     } finally {
       setLoading(false);
     }
-  };
+  }, [userId]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchExperiences();
-  }, [userId]);
+  }, [fetchExperiences]);
 
   return {
     experiences,
