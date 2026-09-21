@@ -17,6 +17,7 @@ const LinkedinButton = ({
   const navigate = useNavigate();
   const [stateButton, setStateButton] = useState("IDLE");
   const actionType = customVariant?.actionType;
+
   let currentConfig = customVariant;
 
   if (actionType === "FOLLOW") {
@@ -43,17 +44,20 @@ const LinkedinButton = ({
   const activeVariant = variant || configVariant || "primary";
   const isIconOnly = iconOnly || !labelText;
 
-  const handleLabelClick = (e) => {
+  const handleLabelClick = (event) => {
     if (actionType === "FOLLOW") {
-      setStateButton((prev) => (prev === "IDLE" ? "FOLLOWED" : "IDLE"));
+      setStateButton((previousState) =>
+        previousState === "IDLE" ? "FOLLOWED" : "IDLE",
+      );
     } else if (actionType === "CONNECT") {
-      setStateButton((prev) => {
-        if (prev === "IDLE") return "PENDING";
-        if (prev === "PENDING") return "CONNECTED";
+      setStateButton((previousState) => {
+        if (previousState === "IDLE") return "PENDING";
+        if (previousState === "PENDING") return "CONNECTED";
+
         return "IDLE";
       });
     } else if (onClick) {
-      onClick(e);
+      onClick(event);
     } else if (profileId) {
       navigate(`/profile/${profileId}`);
     }
@@ -61,12 +65,16 @@ const LinkedinButton = ({
 
   return (
     <button
-      className={`btn-linkedin btn-${activeVariant} btn-${size} ${isIconOnly ? "btn-icon-only-base" : ""} ${className}`}
+      type="button"
+      className={`btn-linkedin btn-${activeVariant} btn-${size} ${
+        isIconOnly ? "btn-icon-only-base" : ""
+      } ${className}`}
       onClick={handleLabelClick}
       disabled={disabled}
       {...props}
     >
       {Icon && <Icon className="btn-icon" size={18} />}
+
       {!isIconOnly && labelText && (
         <span className="btn-label">{labelText}</span>
       )}
