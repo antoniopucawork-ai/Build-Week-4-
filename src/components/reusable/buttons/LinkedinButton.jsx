@@ -8,6 +8,7 @@ const LinkedinButton = ({ customVariant, variant, iconOnly = false, onClick, dis
 
   return (
     <button
+      type="button"
       className={`btn-linkedin btn-${activeVariant} btn-${size} ${isIconOnly ? "btn-icon-only-base" : ""} ${className}`}
       onClick={onClick}
       disabled={disabled}

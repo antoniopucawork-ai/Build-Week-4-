@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getMyProfile, getProfileById } from "./strive";
 
 export const useProfile = (id) => {
@@ -6,30 +6,39 @@ export const useProfile = (id) => {
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState("");
 
-  const fetchProfile = async () => {
+  // Viene incrementato a ogni richiesta: solo la risposta più recente
+  // può aggiornare lo stato, così cambiando profilo in fretta non vince
+  // la fetch più lenta partita prima.
+  const requestId = useRef(0);
+
+  // Se è presente un ID recupero il profilo dell'utente visitato,
+  // altrimenti recupero il profilo dell'utente autenticato.
+  const fetchProfile = useCallback(async () => {
+    const currentRequest = ++requestId.current;
     setLoading(true);
+    setError("");
 
-    {/* Se è presente un ID recupero il profilo dell'utente visitato,
-    altrimenti recupero il profilo dell'utente autenticato. */}
     try {
-       const data = id
-        ? await getProfileById(id)
-        : await getMyProfile();
+      const data = id ? await getProfileById(id) : await getMyProfile();
 
-console.log("PROFILO API:", data);
-
-      setProfile(data);
+      if (currentRequest === requestId.current) {
+        setProfile(data);
+      }
     } catch (e) {
-      setError(e.message);
+      if (currentRequest === requestId.current) {
+        setError(e.message);
+      }
     } finally {
-      setLoading(false);
+      if (currentRequest === requestId.current) {
+        setLoading(false);
+      }
     }
-  };
+  }, [id]);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchProfile();
-  }, [id]);
+  }, [fetchProfile]);
 
   return {
     loading,

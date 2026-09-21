@@ -1,5 +1,4 @@
 import ChangePageSettingsContainer from "./changePageSettingsContainer/ChangePageSettingsContainer";
-import { useProfile } from "../../../api/useProfile";
 import Adv from "../../main/aside/adv/Adv";
 import SideCard from "../../main/aside/sideCard/SideCard";
 import PeopleYouMayKnow from "../../main/aside/sideCard/peopleYouMayKnow/PeopleYouMayKnow";
@@ -16,8 +15,12 @@ const settingsData = [
   },
 ];
 
-const Aside = () => {
-  const { profile } = useProfile();
+/*
+Il profilo arriva dalla pagina, che ha gia recuperato quello giusto ma
+prima l'Aside chiamava useProfile() senza id, quindi mostrava sempre
+l'utente del token anche se visita il profilo di qualcun altro
+*/
+const Aside = ({ profile }) => {
   return (
     <aside className="d-flex flex-column gap-2">
       <div className="d-none d-md-block">
