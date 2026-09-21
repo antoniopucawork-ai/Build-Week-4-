@@ -4,8 +4,7 @@ import Analysis from "./mainsection/analysis/Analysis";
 import Information from "./mainsection/information/Information";
 import MainCarouselCard from "./mainsection/mainCarouselCard/MainCarouselCard";
 import Activity from "./mainsection/activity/activity";
-import ExperienceSection from "./mainsection/experiencesSection/ExperiencesSection";
-import FormationSection from "./mainsection/formationSection/FormationSection";
+import MainGenericCard from "./mainsection/mainGenericCard/MainGenericCard";
 
 {
   /* Ricevo dal componente Profile i dati del profilo,
@@ -13,6 +12,7 @@ import FormationSection from "./mainsection/formationSection/FormationSection";
     e la funzione per aggiornare i dati del profilo. */
 }
 const Main = ({ profile, isOwnProfile, fetchProfile }) => {
+  console.log("MAIN CARICATO");
   return (
     <section className="d-flex flex-column gap-2">
       {/* Queste sezioni sono visibili anche sugli altri profili,
@@ -32,13 +32,11 @@ const Main = ({ profile, isOwnProfile, fetchProfile }) => {
           ma ricevono isOwnProfile per gestire le azioni riservate al proprietario. */}
       <Information isOwnProfile={isOwnProfile} />
 
+      <MainGenericCard profile={profile} />
       <MainCarouselCard isOwnProfile={isOwnProfile} />
 
       <Activity profile={profile} />
 
-      <ExperienceSection userId={profile._id} isOwnProfile={isOwnProfile} />
-
-      <FormationSection isOwnProfile={isOwnProfile} />
     </section>
   );
 };

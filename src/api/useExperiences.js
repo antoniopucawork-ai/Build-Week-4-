@@ -1,12 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getExperiences } from "./strive";
 
 export const useExperiences = (userId) => {
-  const [loading, setLoading] = useState(false);
   const [experiences, setExperiences] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const requestId = useRef(0);
 
   const fetchExperiences = useCallback(async () => {
     if (!userId) {
@@ -14,24 +12,17 @@ export const useExperiences = (userId) => {
       return;
     }
 
-    const currentRequest = ++requestId.current;
     setLoading(true);
     setError("");
 
     try {
       const data = await getExperiences(userId);
 
-      if (currentRequest === requestId.current) {
-        setExperiences(Array.isArray(data) ? data : []);
-      }
+      setExperiences(Array.isArray(data) ? data : []);
     } catch (e) {
-      if (currentRequest === requestId.current) {
-        setError(e.message);
-      }
+      setError(e.message);
     } finally {
-      if (currentRequest === requestId.current) {
-        setLoading(false);
-      }
+      setLoading(false);
     }
   }, [userId]);
 
@@ -41,8 +32,8 @@ export const useExperiences = (userId) => {
   }, [fetchExperiences]);
 
   return {
-    loading,
     experiences,
+    loading,
     error,
     fetchExperiences,
   };

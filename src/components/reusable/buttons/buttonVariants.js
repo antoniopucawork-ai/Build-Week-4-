@@ -5,6 +5,9 @@ import {
   Pencil,
   X,
   SquareArrowOutUpRight,
+  Ellipsis,
+  Clock,
+  MessageSquare,
 } from "lucide-react";
 
 export const BUTTON_VARIANT = {
@@ -53,6 +56,22 @@ export const BUTTON_VARIANT = {
       label: "Già segui",
       icon: Check,
       variant: "outline-grey",
+      actionType: "FOLLOW",
+      status: "ACTIVE",
+    },
+    PENDING_CONNECTION: {
+      label: "In sospeso",
+      icon: Clock,
+      variant: "outline-grey",
+      actionType: "CONNECT",
+      status: "PENDING",
+    },
+    CONNECTED: {
+      label: "Messaggio",
+      icon: MessageSquare,
+      variant: "outline-grey",
+      actionType: "CONNECT",
+      status: "CONNECTED",
     },
   },
   ASIDE: {
@@ -70,11 +89,15 @@ export const BUTTON_VARIANT = {
       label: "Collegati",
       icon: UserPlus,
       variant: "outline-grey",
+      actionType: "CONNECT",
+      status: "IDLE",
     },
     FOLLOW: {
       label: "Segui",
       icon: Plus,
       variant: "outline-grey",
+      actionType: "FOLLOW",
+      status: "IDLE",
     },
   },
   MODAL: {
@@ -114,6 +137,11 @@ export const BUTTON_VARIANT = {
       label: null,
       icon: Pencil,
       variant: "icon-only-secondary",
+    },
+    MORE: {
+      label: null,
+      icon: Ellipsis,
+      variant: "icon-only-outline",
     },
   },
 };
