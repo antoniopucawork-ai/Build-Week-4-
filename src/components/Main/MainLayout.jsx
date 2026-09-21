@@ -4,7 +4,6 @@ import Analysis from "./mainsection/analysis/Analysis";
 import Information from "./mainsection/information/Information";
 import MainCarouselCard from "./mainsection/mainCarouselCard/MainCarouselCard";
 import Activity from "./mainsection/activity/activity";
-
 {
   /* Ricevo dal componente Profile i dati del profilo,
     l'informazione che indica se è il profilo dell'utente autenticato

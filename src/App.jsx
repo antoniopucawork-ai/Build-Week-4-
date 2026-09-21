@@ -3,7 +3,7 @@ import Layout from "./components/layout/Layout";
 
 import Profile from "./pages/profile/Profile";
 import NotFound from "./pages/notfound/NotFound";
-import MainSection from "./components/main/mainsection/MainSection";
+import MainSection from "./components/Main/mainsection/MainSection";
 const App = () => {
   return (
     <BrowserRouter>

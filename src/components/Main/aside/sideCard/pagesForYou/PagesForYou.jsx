@@ -1,8 +1,8 @@
 import { useProfiles } from "../../../../../api/useProfiles";
-import SideProfileCard from "../sideProfileCard/SideProfileCard";
+import SideProfileCard from "./../sideProfileCard/SideProfileCard";
 import LinkedinButton from "../../../../reusable/buttons/LinkedinButton";
 import { BUTTON_VARIANT } from "../../../../reusable/buttons/buttonVariants";
-import {  ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const pagesInfo = [
   {
@@ -41,7 +41,10 @@ const PagesForYou = () => {
               pageInfo={pagesInfo[index]}
               isLast={index === visibleProfiles.length - 1}
             >
-              <LinkedinButton customVariant={BUTTON_VARIANT.ASIDE.FOLLOW} />
+              <LinkedinButton
+                customVariant={BUTTON_VARIANT.ASIDE.FOLLOW}
+                className="my-2"
+              />
             </SideProfileCard>
           ))}
         </div>

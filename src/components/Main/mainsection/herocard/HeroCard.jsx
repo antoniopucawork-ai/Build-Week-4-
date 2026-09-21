@@ -4,9 +4,11 @@ import LinkedinButton from "../../../reusable/buttons/LinkedinButton";
 import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants";
 import epicode from "../../../../assets/logo/epicode-icon.png";
 import UploadImageModal from "../uploadCoverModal/UploadImageModal.jsx";
-
-{/* isOwnProfile indica se sto visualizzando il mio profilo o quello di un altro utente.
-    fetchProfile permette di aggiornare i dati del profilo dopo una modifica. */}
+import { Row, Col } from "react-bootstrap";
+{
+  /* isOwnProfile indica se sto visualizzando il mio profilo o quello di un altro utente.
+    fetchProfile permette di aggiornare i dati del profilo dopo una modifica. */
+}
 const HeroCard = ({ profile, isOwnProfile, fetchProfile }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -64,11 +66,30 @@ const HeroCard = ({ profile, isOwnProfile, fetchProfile }) => {
           </div>
         </div>
         {isOwnProfile && (
-          <div className="hero-actions">
-            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.AVAILABLE} />
-            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.ADD_SECTION} />
-            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.EHNANCE} />
-            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.RESOURCE} />
+          <div className="hero-actions row g-2 align-items-center">
+            <div className="col-12 col-md-auto">
+              <div className="d-flex justify-content-between align-items-center gap-2">
+                <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.AVAILABLE} 
+                className="me-md-2 w-100 w-md-auto"/>
+                <LinkedinButton
+                  customVariant={BUTTON_VARIANT.MAIN.ADD_SECTION}
+                  className="w-100 w-md-auto text-nowrap"
+                />
+                <LinkedinButton
+                  customVariant={BUTTON_VARIANT.ICON_ONLY.MORE}
+                  className="d-md-none"
+                />
+              </div>
+            </div>
+            <div className="col-12 col-md-auto d-flex">
+              <LinkedinButton
+                customVariant={BUTTON_VARIANT.MAIN.EHNANCE}
+                className="w-100 w-md-auto"
+              />
+            </div>
+            <div className="col-md-auto d-none d-md-block">
+              <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.RESOURCE} />
+            </div>
           </div>
         )}
       </div>

@@ -1,5 +1,5 @@
 import MainLayout from "../../components/main/MainLayout";
-import Aside from "../../components/main/aside/Aside";
+import Aside from "../../components/Main/aside/Aside";
 import { StickyProfileBar } from "../../components/main/mainsection/stickyProfileBar/StickyProfileBar";
 import { Row, Col, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
@@ -24,9 +24,9 @@ const Profile = () => {
   return (
     <>
       <StickyProfileBar />
-      <Container className="py-2">
+      <Container fluid="md" className="py-2 px-md-3 px-lg-5">
         <Row>
-          <Col md={8} className="mt-2">
+          <Col lg={8} className="mt-2 px-0">
             <MainLayout
               profile={profile}
               isOwnProfile={!id}
@@ -34,7 +34,7 @@ const Profile = () => {
             />
           </Col>
 
-          <Col md={4} className="mt-2">
+          <Col lg={4} className="mt-2">
             <Aside profile={profile}/>
           </Col>
         </Row>

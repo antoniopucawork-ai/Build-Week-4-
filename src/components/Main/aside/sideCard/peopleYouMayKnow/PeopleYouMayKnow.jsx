@@ -8,7 +8,9 @@ import { ArrowRight } from "lucide-react";
 const PeopleYouMayKnow = () => {
   const { profiles } = useProfiles();
 
-  {/* Utilizzo navigate per poter navigare al profilo dell'utente selezionato. */}
+  {
+    /* Utilizzo navigate per poter navigare al profilo dell'utente selezionato. */
+  }
   const navigate = useNavigate();
 
   const visibleProfiles = profiles.slice(0, 5);
@@ -20,17 +22,18 @@ const PeopleYouMayKnow = () => {
           <h6 className="mb-0 fw-semibold">Persone che potresti conoscere</h6>
           <p className="text-muted lh-1 small">Della tua qualifica</p>
         </div>
+        {/* Al click sul profilo navigo al profilo dell'utente selezionato,
+    passando il suo ID nell'URL. */}
         {visibleProfiles.map((profile, index) => (
           <SideProfileCard
             key={profile._id}
             profile={profile}
             isLast={index === visibleProfiles.length - 1}
+            onProfileClick={() => navigate(`/profile/${profile._id}`)}
           >
-            {/* Al click sul pulsante navigo al profilo dell'utente selezionato,
-    passando il suo ID nell'URL. */}
             <LinkedinButton
               customVariant={BUTTON_VARIANT.ASIDE.CONNECT}
-              onClick={() => navigate(`/profile/${profile._id}`)}
+              className="my-2"
             />
           </SideProfileCard>
         ))}
