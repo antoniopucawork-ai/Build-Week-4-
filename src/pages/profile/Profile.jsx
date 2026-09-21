@@ -21,12 +21,14 @@ const Profile = () => {
   if (!profile) {
     return null;
   }
+
   return (
     <>
       <StickyProfileBar profile={profile} isOwnProfile={!id} />
-      <Container className="py-2">
+
+      <Container fluid="md" className="py-2 px-md-3 px-lg-5">
         <Row>
-          <Col md={8} className="mt-2">
+          <Col lg={8} className="mt-2 px-0">
             <MainLayout
               profile={profile}
               isOwnProfile={!id}
@@ -34,8 +36,8 @@ const Profile = () => {
             />
           </Col>
 
-          <Col md={4} className="mt-2">
-            <Aside profile={profile}/>
+          <Col lg={4} className="mt-2">
+            <Aside profile={profile} />
           </Col>
         </Row>
       </Container>
