@@ -32,6 +32,11 @@ export const BUTTON_VARIANT = {
       icon: null,
       variant: "outline-grey",
     },
+    MESSAGE: {
+      label: "Invia messaggio",
+      icon: null,
+      variant: "primary",
+    },
     CREATE: {
       label: "Crea un post",
       icon: null,

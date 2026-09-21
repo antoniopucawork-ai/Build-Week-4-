@@ -40,7 +40,7 @@ export const StickyProfileBar = ({ profile, isOwnProfile }) => { // Riceve il pr
           <span className="stickyTitle">{profile.title}</span>
         </div>
 
-        {isOwnProfile && (
+        {isOwnProfile ? (
           <div className="stickyActions d-flex align-items-center gap-2 ms-auto">
             <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.RESOURCE} />
 
@@ -50,6 +50,16 @@ export const StickyProfileBar = ({ profile, isOwnProfile }) => { // Riceve il pr
 
             <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.AVAILABLE} />
           </div>
+        ) : (
+         <div className="d-flex gap-2 align-items-center ms-auto">
+  <button className="btn btn-outline-dark rounded-pill pt-1 pb-1 linkedinOutlineBtn">
+    Altro
+  </button>
+
+  <LinkedinButton
+    customVariant={BUTTON_VARIANT.MAIN.MESSAGE}
+  />
+</div>
         )}
       </div>
     </div>
