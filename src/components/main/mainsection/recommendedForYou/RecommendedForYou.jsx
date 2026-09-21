@@ -5,7 +5,7 @@ const RecommendedForYou = () => {
     <div className="bg-white rounded-3 border pt-2">
       <div className="pe-1 ps-1">
         <div className="p-4 ps-3 pb-0">
-          <h6 className="mb-0 fw-semibold mb-1">Consigliato per te</h6>
+          <h2 className="mb-0 fw-semibold mb-1 fs-5">Consigliato per te</h2>
 
           <div className="text-muted lh-1 small d-flex gap-1">
             <Eye size={16} />

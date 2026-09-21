@@ -1,11 +1,10 @@
 import LinkedinButton from "../../../reusable/buttons/LinkedinButton"
 import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants"
-import "./Adv.css"
 
 
-const Adv = ({ user, sticky }) => {
+const Adv = ({ user }) => {
   return (
-    <div className={`advPremium  bg-light border p-2 text-center ${sticky ? "advSticky" : ""}`}>
+    <div className="advPremium bg-light border p-2 text-center">
       <div className="d-flex justify-content-end align-items-end">
         <span className="badge bg-light text-dark">Annuncio</span>
         <button className="btn btn-sm py-0">•••</button>

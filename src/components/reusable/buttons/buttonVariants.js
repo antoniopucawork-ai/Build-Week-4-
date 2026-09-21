@@ -5,7 +5,7 @@ import {
   Pencil,
   X,
   SquareArrowOutUpRight,
-} from "lucide-react"
+} from "lucide-react";
 
 export const BUTTON_VARIANT = {
   MAIN: {
@@ -28,6 +28,11 @@ export const BUTTON_VARIANT = {
       label: "Risorse",
       icon: null,
       variant: "outline-grey",
+    },
+    MESSAGE: {
+      label: "Invia messaggio",
+      icon: null,
+      variant: "primary",
     },
     CREATE: {
       label: "Crea un post",
@@ -108,7 +113,7 @@ export const BUTTON_VARIANT = {
     COVER_IMAGE: {
       label: null,
       icon: Pencil,
-      variant: "icon-only-secondary"
-    }
+      variant: "icon-only-secondary",
+    },
   },
-}
+};
