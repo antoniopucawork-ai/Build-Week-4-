@@ -34,6 +34,7 @@ const PagesForYou = () => {
             <h6 className="mb-0 fw-semibold">Potrebbero interessarti</h6>
             <p className="text-muted lh-1 small">Pagine per te</p>
           </div>
+
           {visibleProfiles.map((profile, index) => (
             <SideProfileCard
               key={profile._id}
@@ -48,6 +49,7 @@ const PagesForYou = () => {
             </SideProfileCard>
           ))}
         </div>
+
         <div className="border-top">
           <button className="btn showAllBtn">
             Mostra tutto

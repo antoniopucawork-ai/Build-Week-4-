@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-
+import ExperienceDetailsPage from "./pages/profile/ExperienceDetailsPage";
 import Profile from "./pages/profile/Profile";
 import NotFound from "./pages/notfound/NotFound";
 import MainSection from "./components/Main/mainsection/MainSection";
@@ -13,6 +13,7 @@ const App = () => {
 
           <Route path="/profile/:id?" element={<Profile />} />
 
+          <Route path="/details/experience" element={<ExperienceDetailsPage />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

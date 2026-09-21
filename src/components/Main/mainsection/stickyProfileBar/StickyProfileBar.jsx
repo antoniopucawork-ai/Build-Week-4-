@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { useProfile } from "../../../../api/useProfile";
 import LinkedinButton from "../../../reusable/buttons/LinkedinButton"
 import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants"
 import "./StickyProfileBar.css";
 
-export const StickyProfileBar = () => {
-  const { profile, loading } = useProfile();
+export const StickyProfileBar = ({ profile, isOwnProfile }) => { // Riceve il profilo dalla pagina invece di rifare la fetch dell utente del token.
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -19,7 +17,7 @@ export const StickyProfileBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (loading || !profile) return null;
+  if (!profile) return null;
 
 
   return (
@@ -42,15 +40,27 @@ export const StickyProfileBar = () => {
           <span className="stickyTitle">{profile.title}</span>
         </div>
 
-        <div className="stickyActions d-flex align-items-center gap-2 ms-auto">
-          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.RESOURCE} />
+        {isOwnProfile ? (
+          <div className="stickyActions d-flex align-items-center gap-2 ms-auto">
+            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.RESOURCE} />
 
-          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.EHNANCE} />
+            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.EHNANCE} />
 
-          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.ADD_SECTION} />
+            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.ADD_SECTION} />
 
-          <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.AVAILABLE} /> 
-        </div>
+            <LinkedinButton customVariant={BUTTON_VARIANT.MAIN.AVAILABLE} />
+          </div>
+        ) : (
+         <div className="d-flex gap-2 align-items-center ms-auto">
+  <button className="btn btn-outline-dark rounded-pill pt-1 pb-1 linkedinOutlineBtn">
+    Altro
+  </button>
+
+  <LinkedinButton
+    customVariant={BUTTON_VARIANT.MAIN.MESSAGE}
+  />
+</div>
+        )}
       </div>
     </div>
   );

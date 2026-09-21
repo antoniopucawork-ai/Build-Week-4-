@@ -1,12 +1,11 @@
 import "./activity.css";
-import { useProfile } from "../../../../api/useProfile";
 import LinkedinButton from "../../../reusable/buttons/LinkedinButton";
 import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants";
 
-const Activity = () => {
-  // con useProfile prendo i dati del profilo tramite il token nel .env
-  // così non sono dati fissi miei ma cambiano in base al token di chi usa la pagina
-  const { profile, loading, error } = useProfile();
+/* 
+aggiustato anche qui, come l'aside
+*/
+const Activity = ({ profile }) => {
 
   const posts = [
     {
@@ -22,14 +21,6 @@ const Activity = () => {
       text: "Nuove competenze, nuove sfide e tanta voglia di crescere.",
     },
   ];
-
-  if (loading) {
-    return <p>Caricamento attività...</p>;
-  }
-
-  if (error) {
-    return <p>Errore nel caricamento dell'attività.</p>;
-  }
 
   return (
     <section className="activity">

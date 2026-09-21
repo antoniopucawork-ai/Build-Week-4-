@@ -1,4 +1,10 @@
-const SideProfileCard = ({ profile, isLast, children, pageInfo, onProfileClick}) => {
+const SideProfileCard = ({
+  profile,
+  isLast,
+  children,
+  pageInfo,
+  onProfileClick,
+}) => {
   return (
     <div className={`p-3 ${isLast ? "" : "border-bottom mx-3 px-0"}`}>
       {pageInfo && (
@@ -14,9 +20,12 @@ const SideProfileCard = ({ profile, isLast, children, pageInfo, onProfileClick})
             height={48}
             className="rounded"
           />
+
           <div>
             <strong>{pageInfo.name}</strong>
+
             <p className="mb-0 text-muted small">{pageInfo.category}</p>
+
             <p className="mb-0 text-muted small">
               {pageInfo.followers} follower
             </p>
@@ -47,7 +56,9 @@ const SideProfileCard = ({ profile, isLast, children, pageInfo, onProfileClick})
             >
               {profile.name} {profile.surname}
             </strong>
+
             <p className="mb-0 text-muted">{profile.title}</p>
+
             {children}
           </div>
         )}
