@@ -1,4 +1,10 @@
-const SideProfileCard = ({ profile, isLast, children, pageInfo }) => {
+const SideProfileCard = ({
+  profile,
+  isLast,
+  children,
+  pageInfo,
+  onProfileClick,
+}) => {
   return (
     <div className={`p-3 ${isLast ? "" : "border-bottom mx-3 px-0"}`}>
       {pageInfo && (
@@ -10,9 +16,12 @@ const SideProfileCard = ({ profile, isLast, children, pageInfo }) => {
             height={48}
             className="rounded"
           />
+
           <div>
             <strong>{pageInfo.name}</strong>
+
             <p className="mb-0 text-muted small">{pageInfo.category}</p>
+
             <p className="mb-0 text-muted small">
               {pageInfo.followers} follower
             </p>
@@ -27,6 +36,8 @@ const SideProfileCard = ({ profile, isLast, children, pageInfo }) => {
           width={pageInfo ? 20 : 50}
           height={pageInfo ? 20 : 50}
           className="rounded-circle"
+          onClick={onProfileClick}
+          style={{ cursor: onProfileClick ? "pointer" : "default" }}
         />
 
         {pageInfo ? (
@@ -35,10 +46,15 @@ const SideProfileCard = ({ profile, isLast, children, pageInfo }) => {
           </p>
         ) : (
           <div>
-            <strong>
+            <strong
+              onClick={onProfileClick}
+              style={{ cursor: onProfileClick ? "pointer" : "default" }}
+            >
               {profile.name} {profile.surname}
             </strong>
+
             <p className="mb-0 text-muted">{profile.title}</p>
+
             {children}
           </div>
         )}
@@ -46,7 +62,7 @@ const SideProfileCard = ({ profile, isLast, children, pageInfo }) => {
 
       {pageInfo && children}
     </div>
-  )
-}
+  );
+};
 
-export default SideProfileCard
+export default SideProfileCard;
