@@ -1,29 +1,17 @@
 import { useState } from "react";
-import LinkedinButton from "../../../reusable/buttons/LinkedinButton";
-import { BUTTON_VARIANT } from "../../../reusable/buttons/buttonVariants";
 import "./ExperienceForm.css";
 
-const ExperienceForm = ({
-  experience,
-  onSave,
-  onCancel,
-}) => {
+const ExperienceForm = ({ experience, onSave, onCancel }) => {
   const [formData, setFormData] = useState({
     role: experience?.role || "",
     company: experience?.company || "",
-    startDate: experience?.startDate
-      ? experience.startDate.slice(0, 10)
-      : "",
-    endDate: experience?.endDate
-      ? experience.endDate.slice(0, 10)
-      : "",
+    startDate: experience?.startDate ? experience.startDate.slice(0, 10) : "",
+    endDate: experience?.endDate ? experience.endDate.slice(0, 10) : "",
     description: experience?.description || "",
     area: experience?.area || "",
   });
 
-  const [currentJob, setCurrentJob] = useState(
-    !experience?.endDate
-  );
+  const [currentJob, setCurrentJob] = useState(!experience?.endDate);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -61,11 +49,7 @@ const ExperienceForm = ({
   return (
     <div className="experience-form-wrapper">
       <div className="experience-form-header">
-        <h3>
-          {experience
-            ? "Modifica esperienza"
-            : "Aggiungi esperienza"}
-        </h3>
+        <h3>{experience ? "Modifica esperienza" : "Aggiungi esperienza"}</h3>
 
         <button
           type="button"
@@ -76,10 +60,7 @@ const ExperienceForm = ({
         </button>
       </div>
 
-      <form
-        className="experience-form"
-        onSubmit={handleSubmit}
-      >
+      <form className="experience-form" onSubmit={handleSubmit}>
         <div className="experience-form-field">
           <label htmlFor="role">Qualifica</label>
           <input
@@ -108,9 +89,7 @@ const ExperienceForm = ({
 
         <div className="experience-form-row">
           <div className="experience-form-field">
-            <label htmlFor="startDate">
-              Data di inizio
-            </label>
+            <label htmlFor="startDate">Data di inizio</label>
 
             <input
               id="startDate"
@@ -124,9 +103,7 @@ const ExperienceForm = ({
 
           {!currentJob && (
             <div className="experience-form-field">
-              <label htmlFor="endDate">
-                Data di fine
-              </label>
+              <label htmlFor="endDate">Data di fine</label>
 
               <input
                 id="endDate"
@@ -146,15 +123,11 @@ const ExperienceForm = ({
             onChange={handleCurrentJobChange}
           />
 
-          <span>
-            Attualmente lavoro qui
-          </span>
+          <span>Attualmente lavoro qui</span>
         </label>
 
         <div className="experience-form-field">
-          <label htmlFor="description">
-            Descrizione
-          </label>
+          <label htmlFor="description">Descrizione</label>
 
           <textarea
             id="description"
@@ -167,9 +140,7 @@ const ExperienceForm = ({
         </div>
 
         <div className="experience-form-field">
-          <label htmlFor="area">
-            Località
-          </label>
+          <label htmlFor="area">Località</label>
 
           <input
             id="area"
@@ -190,10 +161,7 @@ const ExperienceForm = ({
             Annulla
           </button>
 
-          <button
-            type="submit"
-            className="experience-save-button"
-          >
+          <button type="submit" className="experience-save-button">
             Salva
           </button>
         </div>
